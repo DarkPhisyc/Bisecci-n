@@ -5,10 +5,14 @@ import javax.swing.JLabel;
 
 public class Ventana extends JFrame {
     private JTextField funcion;
+    private JTextField x0;
+    private JTextField error;
     private JButton calcular;
     private JLabel etiqueta1;
     private JLabel etiqueta2;
     private JLabel etiqueta3;
+    private JLabel etiqueta4;
+    private JLabel etiqueta5;
     private JTextField a;
     private JTextField b;
 
@@ -25,16 +29,16 @@ public class Ventana extends JFrame {
         add(funcion);
         // Botón para calcular
         calcular = new JButton("Calcular");
-        calcular.setBounds(229, 200, 100, 30);
+        calcular.setBounds(229, 275, 100, 30);
         add(calcular);
         // Agregar acción al botón
         Gestion gestion = new Gestion(funcion);
         calcular.addActionListener(gestion);
-        // Etiqueda para indicar la entrada de la función
+        // Etiqueta para indicar la entrada de la función
         etiqueta1 = new JLabel("Ingresa la función f(x):");
         etiqueta1.setBounds(60, 50, 150, 30);
         add(etiqueta1);
-        // Etiqueda para indicar la entrada del intervalo
+        // Etiqueta para indicar la entrada del intervalo
         etiqueta2 = new JLabel("Ingresa el intervalo [a, b]:");
         etiqueta2.setBounds(41, 100, 150, 30);
         add(etiqueta2);
@@ -49,7 +53,23 @@ public class Ventana extends JFrame {
         etiqueta3 = new JLabel(",");
         etiqueta3.setBounds(275, 100, 20, 30);
         add(etiqueta3);
-
+        // Etiqueta para indidicar x0
+        etiqueta4 = new JLabel("Ingresa el valor de x0:");
+        etiqueta4.setBounds(60, 150, 150, 30);
+        add(etiqueta4);
+        // Campo de texto para x0
+        x0 = new JTextField();
+        x0.setBounds(190, 150, 180, 30);
+        add(x0);
+        // Etiqueta para indicar el error o tolerancia
+        etiqueta5 = new JLabel("Ingresa el error:");
+        etiqueta5.setBounds(94, 200, 150, 30);
+        add(etiqueta5);
+        // Campo de texto para el error o tolerancia
+        error = new JTextField();
+        error.setBounds(190, 200, 180, 30);
+        add(error);
+        // Hacer visible la ventana
         setVisible(true);
     }
 }
