@@ -11,7 +11,7 @@ public class Gestion implements ActionListener {
     private JTextField a;
     private JTextField b;
     private JTextField error;
-
+    // Constructor para recibir los campos de texto
     public Gestion(JTextField funcion, JTextField a, JTextField b, JTextField error) {
         this.funcion = funcion;
         this.a = a;

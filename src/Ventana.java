@@ -61,4 +61,4 @@ public class Ventana extends JFrame {
         // Hacer visible la ventana
         setVisible(true);
     }
-}
+}  
