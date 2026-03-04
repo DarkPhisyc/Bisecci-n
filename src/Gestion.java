@@ -26,16 +26,18 @@ public class Gestion implements ActionListener {
             double valorA = Double.parseDouble(a.getText());
             double valorB = Double.parseDouble(b.getText());
             double valorError = Double.parseDouble(error.getText());
+            // Validar que la función cambie de signo en el intervalo [a, b]
             double fa = evaluarFuncion(fx, valorA);
             double fb = evaluarFuncion(fx, valorB);
             if(fa * fb >= 0) {
                 JOptionPane.showMessageDialog(null, "La función no cambia de signo en el intervalo [a, b]. Por favor, ingresa un intervalo válido.", null, JOptionPane.ERROR_MESSAGE);
                 return;
             }
+            // Método de bisección
             double m = 0;
-            int iteraciones = 0;
+            int iteraciones = 0; // Contador de iteraciones
             while((valorB - valorA) / 2 > valorError) {
-                m = (valorA + valorB) / 2;
+                m = (valorA + valorB) / 2; // Punto medio
                 double fm = evaluarFuncion(fx, m);
                 if(fa * fm < 0) {
                     valorB = m;
@@ -44,6 +46,7 @@ public class Gestion implements ActionListener {
                     valorA = m;
                     fa = fm;
                 }
+                // Incrementar el contador de iteraciones
                 iteraciones++;
             }
             // Mostrar resultados
