@@ -35,6 +35,7 @@ public class Gestion implements ActionListener {
             }
             // Método de bisección
             double m = 0;
+            double errorFinal = (valorB - valorA) / 2; // Error inicial
             int iteraciones = 0; // Contador de iteraciones
             while((valorB - valorA) / 2 > valorError) {
                 m = (valorA + valorB) / 2; // Punto medio
@@ -46,11 +47,12 @@ public class Gestion implements ActionListener {
                     valorA = m;
                     fa = fm;
                 }
+                errorFinal = (valorB - valorA) / 2; // Actualizar el error a donde se detuvo
                 // Incrementar el contador de iteraciones
                 iteraciones++;
             }
             // Mostrar resultados
-            JOptionPane.showMessageDialog(null, "La raíz aproximada es: " + m + "\nNúmero de iteraciones: " + iteraciones);
+            JOptionPane.showMessageDialog(null, "Raíz aproximada: " + m + "\nIteraciones: " + iteraciones + "\nError final: " + errorFinal);
         // Capturar cualquier error
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Error al evaluar la función.", null, JOptionPane.ERROR_MESSAGE);
